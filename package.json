@@ -1,0 +1,23 @@
+{
+  "name": "discogs-collection-info",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "sls deploy",
+    "invoke": "sls invoke -f value"
+  },
+  "dependencies": {
+    "@types/node": "^7.0.22",
+    "@types/node-fetch": "^1.6.7",
+    "node-fetch": "^1.7.0",
+    "tslint": "^5.3.2",
+    "tslint-react": "^3.0.0",
+    "typescript": "^2.3.3"
+  },
+  "devDependencies": {
+    "serverless": "^1.14.0",
+    "serverless-plugin-typescript": "^0.1.10",
+    "ts-node": "^3.0.4"
+  }
+}

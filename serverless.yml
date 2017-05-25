@@ -1,0 +1,34 @@
+plugins:
+  - serverless-plugin-typescript
+
+service: discogs-collection
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: eu-west-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - cloudwatch:PutMetricData
+      Resource:
+        - "*"
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+functions:
+  value:
+    handler: functions/value.handler
+    environment:
+      TOKEN: ${env:TOKEN}
+    events:
+      - schedule: rate(10 minutes)
+
+package:
+  exclude:
+    - node_modules/**/*
+  include:
+    - node_modules/encoding/**/*
+    - node_modules/iconv-lite/**/*
+    - node_modules/is-stream/**/*
+    - node_modules/node-fetch/**/*
