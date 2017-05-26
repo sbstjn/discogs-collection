@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "deploy": "sls deploy",
-    "invoke": "sls invoke -f value"
+    "invoke:value": "sls invoke -f value",
+    "invoke:items": "sls invoke -f items"
   },
   "dependencies": {
     "@types/node": "^7.0.22",

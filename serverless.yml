@@ -15,12 +15,24 @@ provider:
         - "*"
 
 custom:
+  fallback:
+    username: 'sbstjn'
   stage: ${opt:stage, self:provider.stage}
+  username: ${env:USERNAME, self:custom.fallback.username}
+
 functions:
   value:
     handler: functions/value.handler
     environment:
       TOKEN: ${env:TOKEN}
+      USERNAME: ${self:custom.username}
+    events:
+      - schedule: rate(10 minutes)
+  items:
+    handler: functions/items.handler
+    environment:
+      TOKEN: ${env:TOKEN}
+      USERNAME: ${self:custom.username}
     events:
       - schedule: rate(10 minutes)
 

@@ -16,25 +16,20 @@ export default class API {
     )
   }
 
-  items(): Promise<{ items: number, last: { artist: string, title: string, year: number } }> {
-    return this.request('users/sbstjn/collection/folders/0/releases', 'sort=added&sort_order=desc&per_page=1').then(
+  items(): Promise<{ items: number }> {
+    return this.request('users/' + process.env.USERNAME + '/collection/folders/0/releases', 'sort=added&sort_order=desc&per_page=1').then(
       (res: {json: Function}) => res.json()
     ).then(
-      (res: {releases: {}, pagination: { items: number }}) => {
+      (res: { pagination: { items: number } }) => {
         return {
-          items: res.pagination.items,
-          last: {
-            artist: res.releases[0].basic_information.artists[0].name,
-            title: res.releases[0].basic_information.title,
-            year: res.releases[0].basic_information.year
-          }
+          items: res.pagination.items
         }
       }
     )
   }
 
   value(): Promise<{ maximum: number, median: number, minimum: number}> {
-    return this.request('users/sbstjn/collection/value').then(
+    return this.request('users/' + process.env.USERNAME + '/collection/value').then(
       (res: {json: Function}) => res.json()
     ).then(
       (res) => {
