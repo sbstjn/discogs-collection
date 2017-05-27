@@ -16,7 +16,7 @@ provider:
 
 custom:
   fallback:
-    username: 'sbstjn'
+    username: sbstjn
   stage: ${opt:stage, self:provider.stage}
   username: ${env:USERNAME, self:custom.fallback.username}
 

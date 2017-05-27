@@ -2,7 +2,7 @@
 
 [![license](https://img.shields.io/github/license/sbstjn/discogs-collection.svg)](https://github.com/sbstjn/discogs-collection/blob/master/LICENSE.md)
 
-Crawl the value of your [Discogs](https://discogs.com) Collection with AWS Lambda and log `maximum`, `minimum`, and `median` values to custom CloudWatch metrics.
+Crawl the value of your [Discogs](https://discogs.com) Collection with AWS Lambda and log `maximum`, `minimum`, and `median` collection values, as well as the number of items in your collection to custom CloudWatch metrics. 
 
 ![Discogs.com Collection Value](/cloudwatch.png)
 
@@ -11,6 +11,10 @@ Crawl the value of your [Discogs](https://discogs.com) Collection with AWS Lambd
 ```bash
 $ > yarn install
 ```
+
+## Configure
+
+Make sure to update your Discogs username in `serverless.yml` or set the `USERNAME` environment variable before you deploy your functions.
 
 ## Deploy
 
