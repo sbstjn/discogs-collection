@@ -4,21 +4,41 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "lint": "tslint -c tslint.json '{lib,functions}/**/*.{ts,tsx}' -s node_modules/tslint-stylish -t stylish",
     "deploy": "sls deploy",
     "invoke:value": "sls invoke -f value",
-    "invoke:items": "sls invoke -f items"
+    "invoke:items": "sls invoke -f items",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@types/fetch-mock": "^5.8.2",
+    "@types/isomorphic-fetch": "^0.0.34",
     "@types/node": "^7.0.22",
-    "@types/node-fetch": "^1.6.7",
+    "isomorphic-fetch": "^2.2.1",
     "node-fetch": "^1.7.0",
     "tslint": "^5.3.2",
     "tslint-react": "^3.0.0",
     "typescript": "^2.3.3"
   },
   "devDependencies": {
+    "@types/jest": "^19.2.3",
+    "fetch-mock": "^5.11.0",
     "serverless": "^1.14.0",
     "serverless-plugin-typescript": "^0.1.10",
-    "ts-node": "^3.0.4"
+    "ts-jest": "^20.0.4",
+    "ts-node": "^3.0.4",
+    "tslint-stylish": "^2.1.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "/tests/.*\\.(ts|tsx|js)$"
   }
 }

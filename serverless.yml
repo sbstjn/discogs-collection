@@ -43,4 +43,5 @@ package:
     - node_modules/encoding/**/*
     - node_modules/iconv-lite/**/*
     - node_modules/is-stream/**/*
+    - node_modules/isomorphic-fetch/**/*
     - node_modules/node-fetch/**/*
