@@ -1,6 +1,8 @@
 # ⚡️ Discogs Collection Info
 
+[![CircleCI](https://img.shields.io/circleci/project/github/sbstjn/discogs-collection.svg)](https://circleci.com/gh/sbstjn/discogs-collection)
 [![license](https://img.shields.io/github/license/sbstjn/discogs-collection.svg)](https://github.com/sbstjn/discogs-collection/blob/master/LICENSE.md)
+[![Coveralls](https://img.shields.io/coveralls/sbstjn/discogs-collection.svg)](https://coveralls.io/github/sbstjn/discogs-collection)
 
 Crawl the value of your [Discogs](https://discogs.com) Collection with AWS Lambda and log `maximum`, `minimum`, and `median` collection values, as well as the number of items in your collection to custom CloudWatch metrics. 
 
