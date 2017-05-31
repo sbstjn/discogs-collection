@@ -9,12 +9,15 @@
     "invoke:value": "sls invoke -f value",
     "invoke:items": "sls invoke -f items",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:cover": "yarn test -- --coverage",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "dependencies": {
     "@types/fetch-mock": "^5.8.2",
     "@types/isomorphic-fetch": "^0.0.34",
     "@types/node": "^7.0.22",
+    "coveralls": "^2.13.1",
     "isomorphic-fetch": "^2.2.1",
     "node-fetch": "^1.7.0",
     "tslint": "^5.3.2",
