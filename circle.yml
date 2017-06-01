@@ -1,10 +1,14 @@
 machine:
   environment:
     PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
-  
+  node:
+    version: stable
+
 dependencies:
+  pre:
+    - curl -o- -L https://yarnpkg.com/install.sh | bash
   override:
-    - yarn
+    - yarn install
   cache_directories:
     - ~/.cache/yarn
 
