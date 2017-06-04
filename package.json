@@ -7,10 +7,7 @@
     "lint": "tslint -c tslint.json '{lib,functions}/**/*.{ts,tsx}' -s node_modules/tslint-stylish -t stylish",
     "deploy": "sls deploy",
     "invoke:value": "sls invoke -f value",
-    "invoke:items": "sls invoke -f items",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cover": "yarn test -- --coverage"
+    "invoke:items": "sls invoke -f items"
   },
   "dependencies": {
     "@types/fetch-mock": "^5.8.2",
