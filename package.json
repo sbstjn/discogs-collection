@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "lint": "tslint -c tslint.json '{lib,functions}/**/*.{ts,tsx}' -s node_modules/tslint-stylish -t stylish",
+    "lint": "tslint -c tslint.json '{routes,functions}/**/*.{ts,tsx}' -s node_modules/tslint-stylish -t stylish",
     "deploy": "sls deploy",
     "invoke:value": "sls invoke -f value",
     "invoke:items": "sls invoke -f items",
