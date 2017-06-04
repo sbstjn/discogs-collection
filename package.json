@@ -10,13 +10,13 @@
     "invoke:items": "sls invoke -f items",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:cover": "yarn test -- --coverage",
+    "test:cover": "yarn test -- --coverage"
   },
   "dependencies": {
     "@types/fetch-mock": "^5.8.2",
     "@types/isomorphic-fetch": "^0.0.34",
     "@types/node": "^7.0.22",
-    "discogs-basics": "^0.0.2",
+    "discogs-basics": "^0.1.0",
     "isomorphic-fetch": "^2.2.1",
     "jest": "^20.0.4",
     "node-fetch": "^1.7.0",
