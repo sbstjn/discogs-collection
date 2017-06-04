@@ -1,7 +1,7 @@
-import API, { ResponseCollectionItems } from '../lib/API'
+import API, { ResponseCollectionItems } from 'discogs-basics'
 import * as AWS from 'aws-sdk'
 
-const Discogs = new API(process.env.TOKEN)
+const Discogs = new API(process.env.USERNAME, process.env.TOKEN)
 const CloudWatch = new AWS.CloudWatch()
 
 function save({ items }: ResponseCollectionItems): Promise<ResponseCollectionItems> {
