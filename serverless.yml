@@ -36,8 +36,18 @@ functions:
     events:
       - schedule: rate(10 minutes)
 
+  http-last:
+    handler: routes/last.handler
+    environment:
+      TOKEN: ${env:TOKEN}
+      USERNAME: ${self:custom.username}
+    events:
+      - http: GET last
+
 package:
   exclude:
+    - tests/**/*
+    - coverage/**/*
     - node_modules/**/*
   include:
     - node_modules/encoding/**/*

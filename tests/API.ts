@@ -57,4 +57,44 @@ describe('API', () => {
       done.fail
     )
   })
+
+  it('requests last', done => {
+    process.env.USERNAME = 'username'
+
+    fetchMock.mock('https://api.discogs.com/users/username/collection/folders/0/releases?token=lorem&sort=added&sort_order=desc&per_page=1', {
+      status: 200,
+      body: {
+        'pagination': {
+          'items': 267
+        },
+        'releases': [
+          {
+            'basic_information': {
+              'artists': [
+                {
+                  'name': 'Lakman'
+                }
+              ],
+              'title': 'Aus Dem Schoß Der Psychose',
+              'year': 2016
+            }
+          }
+        ]
+      }
+    })
+
+    const Discogs = new API('lorem')
+
+    Discogs.Last().then(
+      data => {
+        expect(data.title).toEqual('Aus Dem Schoß Der Psychose')
+        expect(data.artist).toEqual('Lakman')
+        expect(data.year).toEqual(2016)
+
+        done()
+      }
+    ).catch(
+      done.fail
+    )
+  })
 })

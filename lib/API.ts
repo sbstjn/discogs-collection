@@ -11,6 +11,28 @@ export interface ResponseCollectionItems {
   items: number
 }
 
+export interface ResponseCollectionLast {
+  artist: string
+  title: string
+  year: number
+}
+
+interface DiscogsCollections {
+  pagination: {
+    items: number
+  }
+
+  releases: {
+    basic_information: {
+      artists: {
+        name: string
+      }[]
+      title: string
+      year: number
+    }
+  }[]
+}
+
 export default class API {
   constructor(private token: string) { }
 
@@ -22,7 +44,19 @@ export default class API {
     return this.request('users/' + process.env.USERNAME + '/collection/folders/0/releases', 'sort=added&sort_order=desc&per_page=1').then(
       (res: {json: Function}) => res.json()
     ).then(
-      (res: {pagination: ResponseCollectionItems}) => ({ items: res.pagination.items })
+      (res: DiscogsCollections) => ({ items: res.pagination.items })
+    )
+  }
+
+  public Last(): Promise<ResponseCollectionLast> {
+    return this.request('users/' + process.env.USERNAME + '/collection/folders/0/releases', 'sort=added&sort_order=desc&per_page=1').then(
+      (res: {json: Function}) => res.json()
+    ).then(
+      (res: DiscogsCollections) => ({
+        artist: res.releases[0].basic_information.artists[0].name,
+        title: res.releases[0].basic_information.title,
+        year: res.releases[0].basic_information.year
+      })
     )
   }
 
