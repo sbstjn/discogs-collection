@@ -1,4 +1,4 @@
-import API, { ResponseCollectionValue } from '../lib/API'
+import API, { ResponseCollectionValue } from 'discogs-basics'
 import * as AWS from 'aws-sdk'
 
 const Discogs = new API(process.env.USERNAME, process.env.TOKEN)

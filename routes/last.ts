@@ -1,4 +1,4 @@
-import API from '../lib/API'
+import API from 'discogs-basics'
 
 const Discogs = new API(process.env.USERNAME, process.env.TOKEN)
 

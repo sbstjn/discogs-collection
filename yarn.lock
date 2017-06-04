@@ -731,6 +731,10 @@ diff@^3.1.0, diff@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.2.0.tgz#c9ce393a4b7cbd0b058a725c93df299027868ff9"
 
+discogs-basics@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/discogs-basics/-/discogs-basics-0.0.2.tgz#6bda6d9735ddba0cc4a12257f80303f50f197dcd"
+
 download@^5.0.2:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/download/-/download-5.0.3.tgz#63537f977f99266a30eb8a2a2fbd1f20b8000f7a"
