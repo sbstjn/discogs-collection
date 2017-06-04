@@ -7,7 +7,8 @@
     "lint": "tslint -c tslint.json '{lib,functions}/**/*.{ts,tsx}' -s node_modules/tslint-stylish -t stylish",
     "deploy": "sls deploy",
     "invoke:value": "sls invoke -f value",
-    "invoke:items": "sls invoke -f items"
+    "invoke:items": "sls invoke -f items",
+    "test": "echo \"None.\""
   },
   "dependencies": {
     "@types/fetch-mock": "^5.8.2",
