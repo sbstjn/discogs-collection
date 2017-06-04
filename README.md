@@ -8,6 +8,8 @@ Crawl the value of your [Discogs](https://discogs.com) Collection with AWS Lambd
 
 ![Discogs.com Collection Value](/cloudwatch.png)
 
+Additionally, this creates an HTTP endpoint `/last` that returns the most recent item in your library.
+
 ## Install
 
 ```bash
