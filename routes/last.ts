@@ -1,6 +1,6 @@
 import API from '../lib/API'
 
-const Discogs = new API(process.env.TOKEN)
+const Discogs = new API(process.env.USERNAME, process.env.TOKEN)
 
 export function handler(event: {}, context: {}, callback: Function): void {
   Discogs.Last().then(

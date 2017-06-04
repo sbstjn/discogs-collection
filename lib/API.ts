@@ -34,14 +34,14 @@ interface DiscogsCollections {
 }
 
 export default class API {
-  constructor(private token: string) { }
+  constructor(private username: string, private token: string) { }
 
   public Token(): string {
     return this.token
   }
 
   public Items(): Promise<ResponseCollectionItems> {
-    return this.request('users/' + process.env.USERNAME + '/collection/folders/0/releases', 'sort=added&sort_order=desc&per_page=1').then(
+    return this.request('users/' + this.username + '/collection/folders/0/releases', 'sort=added&sort_order=desc&per_page=1').then(
       (res: {json: Function}) => res.json()
     ).then(
       (res: DiscogsCollections) => ({ items: res.pagination.items })
@@ -49,7 +49,7 @@ export default class API {
   }
 
   public Last(): Promise<ResponseCollectionLast> {
-    return this.request('users/' + process.env.USERNAME + '/collection/folders/0/releases', 'sort=added&sort_order=desc&per_page=1').then(
+    return this.request('users/' + this.username + '/collection/folders/0/releases', 'sort=added&sort_order=desc&per_page=1').then(
       (res: {json: Function}) => res.json()
     ).then(
       (res: DiscogsCollections) => ({
@@ -61,7 +61,7 @@ export default class API {
   }
 
   public Value(): Promise<ResponseCollectionValue> {
-    return this.request('users/' + process.env.USERNAME + '/collection/value').then(
+    return this.request('users/' + this.username + '/collection/value').then(
       (res: {json: Function}) => res.json()
     ).then(
       (res: ResponseCollectionValue) => {

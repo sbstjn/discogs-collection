@@ -1,7 +1,7 @@
 import API, { ResponseCollectionValue } from '../lib/API'
 import * as AWS from 'aws-sdk'
 
-const Discogs = new API(process.env.TOKEN)
+const Discogs = new API(process.env.USERNAME, process.env.TOKEN)
 const CloudWatch = new AWS.CloudWatch()
 
 function build(name: string, value: number): AWS.CloudWatch.MetricDatum {

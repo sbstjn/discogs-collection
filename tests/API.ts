@@ -5,14 +5,12 @@ describe('API', () => {
   afterEach(fetchMock.restore)
 
   it('define user token', () => {
-    const Discogs = new API('lorem')
+    const Discogs = new API('username', 'lorem')
 
     expect(Discogs.Token()).toBe('lorem')
   })
 
   it('requests value', done => {
-    process.env.USERNAME = 'username'
-
     fetchMock.mock('https://api.discogs.com/users/username/collection/value?token=lorem', {
       status: 200,
       body: {
@@ -22,7 +20,7 @@ describe('API', () => {
       }
     })
 
-    const Discogs = new API('lorem')
+    const Discogs = new API('username', 'lorem')
 
     Discogs.Value().then(
       data => {
@@ -38,14 +36,12 @@ describe('API', () => {
   })
 
   it('requests items', done => {
-    process.env.USERNAME = 'username'
-
     fetchMock.mock('https://api.discogs.com/users/username/collection/folders/0/releases?token=lorem&sort=added&sort_order=desc&per_page=1', {
       status: 200,
       body: { pagination: { items: 50 } }
     })
 
-    const Discogs = new API('lorem')
+    const Discogs = new API('username', 'lorem')
 
     Discogs.Items().then(
       data => {
@@ -59,8 +55,6 @@ describe('API', () => {
   })
 
   it('requests last', done => {
-    process.env.USERNAME = 'username'
-
     fetchMock.mock('https://api.discogs.com/users/username/collection/folders/0/releases?token=lorem&sort=added&sort_order=desc&per_page=1', {
       status: 200,
       body: {
@@ -83,7 +77,7 @@ describe('API', () => {
       }
     })
 
-    const Discogs = new API('lorem')
+    const Discogs = new API('username', 'lorem')
 
     Discogs.Last().then(
       data => {
